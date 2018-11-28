@@ -1,0 +1,21 @@
+<resources>
+    <!-- MainActivity -->
+    <string name="app_name">台灣交通小幫手</string>
+    <string name="weather_forcast" translatable="false">WeatherForecast</string>
+    <string name="bus">公車</string>
+    <string name="mrt">捷運</string>
+    <!-- BusListActivity -->
+    <string name="bus_list_activity_label">公車功能列表</string>
+    <string name="bus_route_search">路線搜尋</string>
+    <string name="bus_route_search_description">路線編號查詢系統，輕鬆查詢公車路線</string>
+    <!-- BusRouteSearch -->
+    <string name="bus_route_search_label">公車路線查詢</string>
+    <!-- TestGithubRepoApiActivity -->
+    <string name="test_github_repo_api_label">GithubRepoSearchAPI</string>
+    <string name="test">測試</string>
+    <string name="error_message">
+        Failed to get results. Please try again.
+    </string>
+    <string name="example">taiwantrafficassistant</string>
+    <!-- Shared String Values-->
+</resources>
