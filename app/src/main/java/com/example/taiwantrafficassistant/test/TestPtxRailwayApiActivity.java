@@ -20,8 +20,9 @@ public class TestPtxRailwayApiActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test_ptx_railway_api);
-        new QueryTask().execute("123");
         result = findViewById(R.id.tv_railway_result);
+
+        new QueryTask().execute("123");
     }
 
     public class QueryTask extends AsyncTask<String , Void, String> {
@@ -35,14 +36,14 @@ public class TestPtxRailwayApiActivity extends AppCompatActivity {
 
         @Override
         protected String doInBackground(String... x) {
-            Toast.makeText(TestPtxRailwayApiActivity.this, "do", Toast.LENGTH_LONG);
+            //Toast.makeText(TestPtxRailwayApiActivity.this, "do", Toast.LENGTH_LONG);
             return SignatureTest.test();
         }
 
         @Override
         protected void onPostExecute(String results) {
             // COMPLETED (27) As soon as the loading is complete, hide the loading indicator
-            Toast.makeText(TestPtxRailwayApiActivity.this, "complete", Toast.LENGTH_LONG);
+            //Toast.makeText(TestPtxRailwayApiActivity.this, "complete", Toast.LENGTH_LONG);
             result.setText(results);
         }
     }

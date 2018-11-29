@@ -1,33 +1,25 @@
 package com.example.taiwantrafficassistant.ptx;
 
-import android.widget.TextView;
-
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.lang.reflect.Type;
 import java.net.HttpURLConnection;
 import java.net.ProtocolException;
 import java.net.URL;
 import java.security.SignatureException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.List;
 import java.util.Locale;
 import java.util.TimeZone;
 import java.util.zip.GZIPInputStream;
-
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 
 public class SignatureTest {
 
     public static String test() {
         HttpURLConnection connection=null;
-        String APIUrl = "https://ptx.transportdata.tw/MOTC/v2/Rail/TRA/Station?$top=10&$format=JSON";
+        String APIUrl = "http://ptx.transportdata.tw/MOTC/v2/Bus/Schedule/City/Taipei?$top=30&$format=JSON";
         //申請的APPID
         //（FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF 為 Guest 帳號，以IP作為API呼叫限制，請替換為註冊的APPID & APPKey）
         String APPID = "a55c64f5cf2d46c2908ed29af853880c";
@@ -85,11 +77,7 @@ public class SignatureTest {
                 response+=(line+"\n");
             }
 
-            Type RailStationListType = new TypeToken<ArrayList<RailStation>>(){}.getType();
-            Gson gsonReceiver = new Gson();
-            List<RailStation> obj = gsonReceiver.fromJson(response, RailStationListType);
-            //System.out.println(response);
-            // return response;
+            return response;
 
         }catch(ProtocolException e){
             e.printStackTrace();
@@ -98,8 +86,7 @@ public class SignatureTest {
         catch(Exception e){
             e.printStackTrace();
         }
-
-        return response;
+        return "fail";
     }
 
     //取得當下UTC時間
