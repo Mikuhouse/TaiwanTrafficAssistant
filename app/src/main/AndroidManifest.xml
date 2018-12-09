@@ -52,7 +52,10 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".bus.BusListActivity" />
         </activity>
-        <activity android:name=".bus.BusTimeOfArrivalActivity"></activity>
+        <activity android:name=".bus.BusTimeOfArrivalActivity"
+            android:label="公車到站時間">
+
+        </activity>
     </application>
 
 </manifest>

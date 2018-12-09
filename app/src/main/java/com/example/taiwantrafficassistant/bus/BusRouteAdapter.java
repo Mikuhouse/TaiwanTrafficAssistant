@@ -92,8 +92,8 @@ public class BusRouteAdapter extends RecyclerView.Adapter<BusRouteAdapter.Number
         return mRouteData.length;
     }
 
-    public void setRouteData(String[] weatherData) {
-        mRouteData = weatherData;
+    public void setRouteData(String[] routeData) {
+        mRouteData = routeData;
         notifyDataSetChanged();
     }
 }

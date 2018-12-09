@@ -20,9 +20,14 @@ public class BusRouteJsonUtils {
         }
         return parsedRouteData;
     }
-    public static String[] getInformationOfRouteNumber(String routeNumber){
-        String[] a = new String[1];
-        a[1] = new String("");
-        return a;
-    }
+
+    //public static String[]
+//    public static String[] getInformationOfRouteNumber(String oringinalJson, String routeNumber)
+////            throws JSONException {
+////        JSONArray jsonArray = new JSONArray(oringinalJson);
+////        for(int i = 0;i < jsonArray.length();i++){
+////
+////        }
+////
+////    }
 }

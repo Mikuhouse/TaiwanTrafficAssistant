@@ -72,7 +72,6 @@ public class NetworkUtils {
     public static URL buildPtxSearchQueryUrl(String ptxSearchQuery) {
         StringBuilder strUrl = new StringBuilder(PTX_BASE_URL);
         strUrl.append(ptxSearchQuery);
-
         URL url = null;
         try {
             url = new URL(strUrl.toString());
@@ -82,7 +81,23 @@ public class NetworkUtils {
 
         return url;
     }
-     /**
+
+    /**
+     *
+     */
+    public static URL buildPtxArrivalTimeQueryUrl(String ptxSearchQuery) {
+        StringBuilder strUrl = new StringBuilder(PTX_BASE_URL);
+        strUrl.append(ptxSearchQuery);
+        URL url = null;
+        try {
+            url = new URL(strUrl.toString());
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
+
+        return url;
+    }
+    /**
      * This method returns the entire result from the HTTP response.
      *
      * @param url The URL to fetch the HTTP response from.

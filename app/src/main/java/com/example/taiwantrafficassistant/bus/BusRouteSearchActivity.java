@@ -1,5 +1,6 @@
 package com.example.taiwantrafficassistant.bus;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -26,6 +27,7 @@ public class BusRouteSearchActivity extends AppCompatActivity implements BusRout
     private static final int NUM_LIST_ITEMS = 100;
     private TextView mResult;
     private EditText mInput;
+    private String[] mPositionMap;
     /*
      * References to RecyclerView and Adapter to reset the list to its
      * "pretty" state when the reset menu item is clicked.
@@ -81,9 +83,7 @@ public class BusRouteSearchActivity extends AppCompatActivity implements BusRout
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-
         }
-
         @Override
         protected String[] doInBackground(String... params) {
             String strUrl = params[0];
@@ -105,20 +105,17 @@ public class BusRouteSearchActivity extends AppCompatActivity implements BusRout
             return parsedRouteData;
         }
 
-
         @Override
         protected void onPostExecute(String[] response) {
             if(response != null){
-                mResult.setText(response[0]);
+                //mResult.setText(response[0]);
+                mPositionMap = response;
                 mAdapter.setRouteData(response);
             }else {
 
             }
 
         }
-
-        //menu inflater
-
     }
 
     @Override
@@ -143,10 +140,15 @@ public class BusRouteSearchActivity extends AppCompatActivity implements BusRout
          *
          *                     Item #42 clicked.
          */
-        String toastMessage = "Item #" + clickedItemIndex + " clicked.";
+        String toastMessage = "Item #" + clickedItemIndex +" " +mPositionMap[clickedItemIndex] +" clicked.";
+
         mToast = Toast.makeText(this, toastMessage, Toast.LENGTH_LONG);
 
         mToast.show();
+
+        Intent numbersIntent = new Intent( BusRouteSearchActivity.this, BusTimeOfArrivalActivity.class);
+        numbersIntent.putExtra(Intent.EXTRA_TEXT, mPositionMap[clickedItemIndex]);
+        startActivity(numbersIntent);
     }
 
     //menu inflater
