@@ -26,32 +26,34 @@ import java.net.URL;
 import java.util.Scanner;
 
 /**
- * These utilities will be used to communicate with the network.
+ * 這個NetworkUtils的功能:
+ * 抓取input stream
+ * 建構URL
  */
 public class NetworkUtils {
-
+    /**
+     * GithubSearchQuery 參數配置
+     */
     final static String GITHUB_BASE_URL =
             "https://api.github.com/search/repositories";
-
-
     final static String PARAM_QUERY = "q";
-
-    /*
-     * The sort field. One of stars, forks, or updated.
-     * Default: results are sorted by best match if no field is specified.
-     */
     final static String PARAM_SORT = "sort";
     final static String sortBy = "stars";
+    /**
+     * PtxSearchQuery 參數配置
+     */
+    final static String PTX_BASE_URL =
+            "http://140.136.149.241/tests/download.php?ID=a55c64f5cf2d46c2908ed29af853880c&KEY=rL4dhGhxs7smLvAtSusvXF2qPcI&url=";
 
     /**
-     * Builds the URL used to query GitHub.
-     *
-     * @param githubSearchQuery The keyword that will be queried for.
-     * @return The URL to use to query the GitHub.
+     * 建構GithubSearchQuery URL
+     * @param ptxSearchQuery 為要搜尋的東西
+     * @return URL 為產生好的URL
+     * @throws MalformedURLException
      */
-    public static URL buildUrl(String githubSearchQuery) {
+    public static URL buildGithubSearchQueryUrl(String ptxSearchQuery) {
         Uri builtUri = Uri.parse(GITHUB_BASE_URL).buildUpon()
-                .appendQueryParameter(PARAM_QUERY, githubSearchQuery)
+                .appendQueryParameter(PARAM_QUERY, ptxSearchQuery)
                 .appendQueryParameter(PARAM_SORT, sortBy)
                 .build();
 
@@ -64,8 +66,23 @@ public class NetworkUtils {
 
         return url;
     }
-
     /**
+     *
+     */
+    public static URL buildPtxSearchQueryUrl(String ptxSearchQuery) {
+        StringBuilder strUrl = new StringBuilder(PTX_BASE_URL);
+        strUrl.append(ptxSearchQuery);
+
+        URL url = null;
+        try {
+            url = new URL(strUrl.toString());
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
+
+        return url;
+    }
+     /**
      * This method returns the entire result from the HTTP response.
      *
      * @param url The URL to fetch the HTTP response from.

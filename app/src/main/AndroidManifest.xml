@@ -13,6 +13,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning">
         <activity android:name=".MainActivity">
             <intent-filter>
@@ -44,12 +45,14 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".bus.BusListActivity" />
         </activity>
-        <activity android:name=".test.TestPtxRailwayApiActivity"
+        <activity
+            android:name=".test.TestPtxApiActivity"
             android:label="PtxRailWayApiTest">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".bus.BusListActivity" />
         </activity>
+        <activity android:name=".bus.BusTimeOfArrivalActivity"></activity>
     </application>
 
 </manifest>

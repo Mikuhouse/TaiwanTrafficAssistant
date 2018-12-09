@@ -11,10 +11,9 @@
     <ImageView
         android:id="@+id/iv_weather_forecast_background"
         android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_height="170dp"
         android:background="@color/colorPrimary"
         android:contentDescription="@string/weather_forcast"
-        app:layout_constraintBottom_toTopOf="@+id/guideline"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -23,65 +22,18 @@
 
     <ImageView
         android:id="@+id/iv_big_circle"
-        android:layout_width="0dp"
+        android:layout_width="150dp"
         android:layout_height="0dp"
-        android:layout_marginStart="16dp"
+        android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline"
-        app:layout_constraintEnd_toStartOf="@+id/guideline2"
-
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_weather_forecast_background"
+        app:layout_constraintLeft_toLeftOf="@id/iv_weather_forecast_background"
         app:layout_constraintTop_toTopOf="@+id/iv_weather_forecast_background"
         app:srcCompat="@drawable/ic_weather_forcast_circle" />
 
-    <ImageView
-        android:id="@+id/right_small_circle3"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        app:layout_constraintBottom_toBottomOf="@+id/right_small_circle"
-        app:layout_constraintEnd_toStartOf="@+id/guideline3"
-        app:layout_constraintStart_toStartOf="@+id/guideline2"
-        app:layout_constraintTop_toTopOf="@+id/right_small_circle"
-        app:srcCompat="@drawable/ic_weather_forcast_circle" />
-
-    <ImageView
-        android:id="@+id/right_small_circle2"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginEnd="24dp"
-        app:layout_constraintBottom_toBottomOf="@+id/iv_weather_forecast_background"
-        app:layout_constraintEnd_toEndOf="@+id/iv_weather_forecast_background"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/guideline4"
-        app:layout_constraintTop_toTopOf="@+id/guideline6"
-        app:layout_constraintVertical_bias="0.43"
-        app:srcCompat="@drawable/ic_weather_forcast_circle" />
-
-    <ImageView
-        android:id="@+id/right_small_circle"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        app:layout_constraintBottom_toBottomOf="@+id/right_small_circle2"
-        app:layout_constraintEnd_toStartOf="@+id/guideline4"
-        app:layout_constraintStart_toStartOf="@+id/guideline3"
-        app:layout_constraintTop_toTopOf="@+id/right_small_circle2"
-        app:srcCompat="@drawable/ic_weather_forcast_circle" />
-
-
-    <android.support.constraint.Guideline
-        android:id="@+id/guideline"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.27" />
 
     <LinearLayout
+        android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -107,9 +59,11 @@
             android:layout_height="wrap_content"
             android:text="@string/mrt"
             android:textSize="40sp" />
+
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp" />
+
         <TextView
             android:id="@+id/tv_test"
             android:layout_width="match_parent"
@@ -118,32 +72,34 @@
             android:textSize="40sp" />
     </LinearLayout>
 
-    <android.support.constraint.Guideline
-        android:id="@+id/guideline2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.4" />
+    <ImageView
+        android:id="@+id/iv_small_circle1"
+        android:layout_width="63dp"
+        android:layout_height="63dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_weather_forecast_background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/ic_weather_forcast_circle" />
 
-    <android.support.constraint.Guideline
-        android:id="@+id/guideline3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.59" />
+    <ImageView
+        android:id="@+id/iv_small_circle2"
+        android:layout_width="63dp"
+        android:layout_height="63dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_small_circle1"
+        app:layout_constraintEnd_toStartOf="@+id/iv_small_circle1"
+        app:layout_constraintTop_toTopOf="@+id/iv_small_circle1"
+        app:srcCompat="@drawable/ic_weather_forcast_circle" />
 
-    <android.support.constraint.Guideline
-        android:id="@+id/guideline4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.78" />
-
-    <android.support.constraint.Guideline
-        android:id="@+id/guideline6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="62dp" />
+    <ImageView
+        android:id="@+id/iv_small_circle3"
+        android:layout_width="63dp"
+        android:layout_height="63dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_small_circle2"
+        app:layout_constraintEnd_toStartOf="@+id/iv_small_circle2"
+        app:layout_constraintTop_toTopOf="@+id/iv_small_circle2"
+        app:srcCompat="@drawable/ic_weather_forcast_circle" />
 
 </android.support.constraint.ConstraintLayout>

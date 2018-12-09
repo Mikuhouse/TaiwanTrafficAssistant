@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 import com.example.taiwantrafficassistant.bus.BusListActivity;
 import com.example.taiwantrafficassistant.test.TestGithubRepoApiActivity;
-import com.example.taiwantrafficassistant.test.TestPtxRailwayApiActivity;
+import com.example.taiwantrafficassistant.test.TestPtxApiActivity;
 
 public class MainActivity extends AppCompatActivity {
     //TODO 建立GridView並點擊導向功能列表
@@ -63,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         if (itemThatWasClickedId == R.id.action_test_ptx_railway_api) {
-            Intent testIntent = new Intent(MainActivity.this, TestPtxRailwayApiActivity.class);
+            Intent testIntent = new Intent(MainActivity.this, TestPtxApiActivity.class);
             startActivity(testIntent);
             return true;
         }
