@@ -9,7 +9,7 @@ import android.widget.TextView;
 import com.example.taiwantrafficassistant.R;
 import com.example.taiwantrafficassistant.utilities.BusRouteJsonUtils;
 import com.example.taiwantrafficassistant.utilities.NetworkUtils;
-
+import com.example.taiwantrafficassistant.utilities.BusRouteJsonUtils;
 import org.json.JSONException;
 
 import java.io.IOException;
@@ -55,33 +55,19 @@ public class BusTimeOfArrivalActivity extends AppCompatActivity {
         @Override
         protected String doInBackground(String... params) {
             String routeName = params[0];
-            StringBuilder stringBuilder = new StringBuilder("https://ptx.transportdata.tw/MOTC/v2/Bus/EstimatedTimeOfArrival/City/Taipei/");
-            stringBuilder.append(routeName).append("?$format=JSON");
-            String strUrl = stringBuilder.toString();
-            String encodedStrUrl = null;
-            try{
-                encodedStrUrl = URLEncoder.encode(strUrl, "UTF-8");
-            }catch (IOException e) {
-                e.printStackTrace();
-            }
-            System.out.println(encodedStrUrl);
+            URL url = NetworkUtils.buildPtxBusStop(routeName);
+            System.out.println(url.toString());
             String jsonResponse = null;
-            String[] parsedRouteData = null;
-            URL url = NetworkUtils.buildPtxArrivalTimeQueryUrl(encodedStrUrl);
-            try {
+            String[] stopsList = new String[1];
+            try{
                 jsonResponse = NetworkUtils.getResponseFromHttpUrl(url);
-            } catch (IOException e) {
-                e.printStackTrace();
+                //stopsList = BusRouteJsonUtils.getSimpleRouteStopFromJson(jsonResponse);
+            }catch(Exception e){
+                System.out.println("Error");
             }
-
-            /*
-            try {
-                parsedRouteData = BusRouteJsonUtils.getSimpleRouteNumberFromJson(jsonResponse);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            */
+            String tmp = stopsList[0];
             return jsonResponse;
+
         }
         @Override
         protected void onPostExecute(String response) {

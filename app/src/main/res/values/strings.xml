@@ -8,8 +8,10 @@
     <string name="bus_list_activity_label">公車功能列表</string>
     <string name="bus_route_search">路線搜尋</string>
     <string name="bus_route_search_description">路線編號查詢系統，輕鬆查詢公車路線</string>
+
     <!-- BusRouteSearch -->
     <string name="bus_route_search_label">公車路線查詢</string>
+    <string name="bus_route_search_box_hint">請輸入要查詢的路線</string>
     <!-- TestGithubRepoApiActivity -->
     <string name="test_github_repo_api_label">GithubRepoSearchAPI</string>
     <string name="test">測試</string>
@@ -17,5 +19,6 @@
         Failed to get results. Please try again.
     </string>
     <string name="example">taiwantrafficassistant</string>
+    <string name="title_activity_bus_nearby_stop_on_map">Map</string>
     <!-- Shared String Values-->
 </resources>

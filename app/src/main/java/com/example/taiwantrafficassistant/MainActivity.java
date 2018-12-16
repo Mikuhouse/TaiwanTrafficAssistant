@@ -3,17 +3,25 @@ package com.example.taiwantrafficassistant;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.taiwantrafficassistant.bus.BusListActivity;
+import com.example.taiwantrafficassistant.mrt.MrtMapWebviewActivity;
+import com.example.taiwantrafficassistant.test.TableLayoutTestActivity;
 import com.example.taiwantrafficassistant.test.TestGithubRepoApiActivity;
 import com.example.taiwantrafficassistant.test.TestPtxApiActivity;
 
 public class MainActivity extends AppCompatActivity {
     //TODO 建立GridView並點擊導向功能列表
+    ImageView mBus;
+    ImageView mMrt;
+    //RecyclerView mMore;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,12 +29,15 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        //retrieve xml layout component
-        TextView bus = (TextView) findViewById(R.id.tv_bus);
-        TextView test = (TextView) findViewById(R.id.tv_test) ;
+        ////retrieve xml layout component
+        mBus = findViewById(R.id.cl_main_bus);
+        mMrt = findViewById(R.id.cl_main_mrt);
+
+
+
 
         //set textview on click action
-        bus.setOnClickListener(new View.OnClickListener() {
+        mBus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent busListIntent = new Intent(MainActivity.this, BusListActivity.class);
@@ -35,14 +46,15 @@ public class MainActivity extends AppCompatActivity {
 
         });
 
-        test.setOnClickListener(new View.OnClickListener() {
+        mMrt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent testIntent = new Intent(MainActivity.this, TestGithubRepoApiActivity.class);
+                Intent testIntent = new Intent(MainActivity.this, MrtMapWebviewActivity.class);
                 startActivity(testIntent);
             }
 
         });
+
 
 
     }

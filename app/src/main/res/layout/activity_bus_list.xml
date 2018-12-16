@@ -29,18 +29,20 @@
 
                 <ImageView
                     android:id="@+id/iv_bus_route_search"
-                    android:layout_width="82dp"
-                    android:layout_height="62dp"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
                     app:layout_constraintBottom_toBottomOf="@id/cl_route_search"
                     app:layout_constraintLeft_toLeftOf="@id/cl_route_search"
                     app:layout_constraintTop_toTopOf="@id/cl_route_search"
-                    app:srcCompat="@drawable/ic_bus" />
+                    app:srcCompat="@drawable/ic_bus_new" />
 
                 <LinearLayout
                     android:id="@+id/linearLayout"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="16dp"
+                    android:layout_marginLeft="8dp"
                     android:orientation="vertical"
                     app:layout_constraintBottom_toBottomOf="@id/iv_bus_route_search"
                     app:layout_constraintLeft_toRightOf="@id/iv_bus_route_search"
@@ -56,7 +58,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/bus_route_search_description"
-                        android:textSize="10sp" />
+                        android:textSize="15sp" />
                 </LinearLayout>
 
                 <ImageView
@@ -69,6 +71,121 @@
                     app:srcCompat="@drawable/ic_arrow" />
 
             </android.support.constraint.ConstraintLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/colorFringe">
+
+            </View>
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/cl_favorate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/iv_bus_route_favorate"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    app:layout_constraintBottom_toBottomOf="@id/cl_favorate"
+                    app:layout_constraintLeft_toLeftOf="@id/cl_favorate"
+                    app:layout_constraintTop_toTopOf="@id/cl_favorate"
+                    app:srcCompat="@drawable/ic_favorate" />
+
+                <LinearLayout
+                    android:id="@+id/linearLayout2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toBottomOf="@id/iv_bus_route_favorate"
+                    app:layout_constraintLeft_toRightOf="@id/iv_bus_route_favorate"
+                    app:layout_constraintTop_toTopOf="@id/iv_bus_route_favorate">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="最愛站牌"
+                        android:textSize="30sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="常用站牌加入最愛，再次查詢省時快速"
+                        android:textSize="15sp" />
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/iv_bus_favorate_arrow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="@id/cl_favorate"
+                    app:layout_constraintRight_toRightOf="@id/cl_favorate"
+                    app:layout_constraintTop_toTopOf="@id/cl_favorate"
+                    app:srcCompat="@drawable/ic_arrow" />
+
+            </android.support.constraint.ConstraintLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/colorFringe">
+
+            </View>
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/cl_route_map"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/iv_bus_route_map"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    app:layout_constraintBottom_toBottomOf="@id/cl_route_map"
+                    app:layout_constraintLeft_toLeftOf="@id/cl_route_map"
+                    app:layout_constraintTop_toTopOf="@id/cl_route_map"
+                    app:srcCompat="@drawable/ic_map" />
+
+                <LinearLayout
+                    android:id="@+id/linearLayout3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toBottomOf="@id/iv_bus_route_map"
+                    app:layout_constraintLeft_toRightOf="@id/iv_bus_route_map"
+                    app:layout_constraintTop_toTopOf="@id/iv_bus_route_map">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="附近站牌"
+                        android:textSize="30sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="及時定位顯示站牌，掌握附近站牌位置"
+                        android:textSize="15sp" />
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/iv_bus_route_map_arrow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="@id/cl_route_map"
+                    app:layout_constraintRight_toRightOf="@id/cl_route_map"
+                    app:layout_constraintTop_toTopOf="@id/cl_route_map"
+                    app:srcCompat="@drawable/ic_arrow" />
+
+            </android.support.constraint.ConstraintLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/colorFringe">
+            </View>
         </LinearLayout>
     </ScrollView>
 </android.support.constraint.ConstraintLayout>

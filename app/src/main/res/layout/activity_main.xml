@@ -11,7 +11,7 @@
     <ImageView
         android:id="@+id/iv_weather_forecast_background"
         android:layout_width="0dp"
-        android:layout_height="170dp"
+        android:layout_height="134dp"
         android:background="@color/colorPrimary"
         android:contentDescription="@string/weather_forcast"
         app:layout_constraintEnd_toEndOf="parent"
@@ -21,18 +21,31 @@
         app:srcCompat="@drawable/shape_rectangle_fill_light" />
 
     <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="100dp"
+        android:layout_height="1dp"
+        android:layout_marginStart="8dp"
+        android:background="@color/colorWrite"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_big_circle"
+        app:layout_constraintEnd_toEndOf="@+id/iv_big_circle"
+        app:layout_constraintStart_toStartOf="@+id/iv_weather_forecast_background"
+        app:layout_constraintTop_toTopOf="@+id/iv_big_circle"
+        app:layout_constraintVertical_bias="0.45"
+        app:srcCompat="@drawable/shape_rectangle_fill_light" />
+
+    <ImageView
         android:id="@+id/iv_big_circle"
-        android:layout_width="150dp"
-        android:layout_height="0dp"
+        android:layout_width="110dp"
+        android:layout_height="110dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toBottomOf="@+id/iv_weather_forecast_background"
         app:layout_constraintLeft_toLeftOf="@id/iv_weather_forecast_background"
-        app:layout_constraintTop_toTopOf="@+id/iv_weather_forecast_background"
         app:srcCompat="@drawable/ic_weather_forcast_circle" />
 
 
     <LinearLayout
+        android:visibility="gone"
         android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -60,22 +73,45 @@
             android:text="@string/mrt"
             android:textSize="40sp" />
 
+
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp" />
 
         <TextView
-            android:id="@+id/tv_test"
+            android:id="@+id/tv_railway"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/test"
+            android:text="台鐵"
+            android:textSize="40sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp" />
+
+        <TextView
+            android:id="@+id/tv_passenger_bus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="客運"
+            android:textSize="40sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp" />
+
+        <TextView
+            android:id="@+id/tv_route_direction"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="路線規劃"
             android:textSize="40sp" />
     </LinearLayout>
 
     <ImageView
         android:id="@+id/iv_small_circle1"
-        android:layout_width="63dp"
-        android:layout_height="63dp"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toBottomOf="@+id/iv_weather_forecast_background"
@@ -84,8 +120,8 @@
 
     <ImageView
         android:id="@+id/iv_small_circle2"
-        android:layout_width="63dp"
-        android:layout_height="63dp"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
         android:layout_marginEnd="8dp"
         app:layout_constraintBottom_toBottomOf="@+id/iv_small_circle1"
         app:layout_constraintEnd_toStartOf="@+id/iv_small_circle1"
@@ -94,12 +130,527 @@
 
     <ImageView
         android:id="@+id/iv_small_circle3"
-        android:layout_width="63dp"
-        android:layout_height="63dp"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
         android:layout_marginEnd="8dp"
         app:layout_constraintBottom_toBottomOf="@+id/iv_small_circle2"
         app:layout_constraintEnd_toStartOf="@+id/iv_small_circle2"
         app:layout_constraintTop_toTopOf="@+id/iv_small_circle2"
         app:srcCompat="@drawable/ic_weather_forcast_circle" />
+
+    <TextView
+        android:id="@+id/tv_main_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="2018.12.18"
+        android:textColor="@color/colorWrite"
+        android:textSize="15dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_big_circle"
+        app:layout_constraintEnd_toEndOf="@+id/iv_big_circle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageView3"
+        app:layout_constraintVertical_bias="0.04000002" />
+
+    <TextView
+        android:id="@+id/tv_main_temperature"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+
+        android:text="21℃"
+        android:textColor="@color/colorWrite"
+        android:textSize="22dp"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_big_circle"
+        app:layout_constraintEnd_toEndOf="@+id/iv_big_circle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_main_date"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="37dp"
+        android:layout_height="29dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/imageView3"
+        app:layout_constraintEnd_toEndOf="@+id/iv_big_circle"
+        app:layout_constraintHorizontal_bias="0.505"
+        app:layout_constraintStart_toStartOf="@+id/iv_weather_forecast_background"
+        app:layout_constraintTop_toTopOf="@+id/iv_big_circle"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/ic_cloudy" />
+
+    <TextView
+        android:id="@+id/tv__location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="新莊區"
+        android:textSize="24sp"
+        android:textColor="@color/colorWrite"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView5"
+        app:layout_constraintStart_toEndOf="@+id/imageView5"
+        app:layout_constraintTop_toTopOf="@+id/imageView5" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="21dp"
+        android:layout_height="27dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/iv_small_circle2"
+        app:layout_constraintEnd_toEndOf="@+id/iv_small_circle2"
+        app:layout_constraintHorizontal_bias="0.48"
+        app:layout_constraintStart_toStartOf="@+id/iv_small_circle3"
+        app:srcCompat="@drawable/ic_location" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="降雨機率"
+        android:textColor="@color/colorWrite"
+        android:textSize="10dp"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_small_circle3"
+        app:layout_constraintEnd_toEndOf="@+id/iv_small_circle3"
+        app:layout_constraintHorizontal_bias="0.388"
+        app:layout_constraintStart_toStartOf="@+id/iv_small_circle3"
+        app:layout_constraintTop_toTopOf="@+id/iv_small_circle3"
+        app:layout_constraintVertical_bias="0.76" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="空氣品質"
+        android:textColor="@color/colorWrite"
+        android:textSize="10dp"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_small_circle2"
+        app:layout_constraintEnd_toEndOf="@+id/iv_small_circle2"
+        app:layout_constraintHorizontal_bias="0.388"
+        app:layout_constraintStart_toStartOf="@+id/iv_small_circle2"
+        app:layout_constraintTop_toTopOf="@+id/iv_small_circle2"
+        app:layout_constraintVertical_bias="0.76" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="紫外等級"
+        android:textColor="@color/colorWrite"
+        android:textSize="10dp"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_small_circle1"
+        app:layout_constraintEnd_toEndOf="@+id/iv_small_circle1"
+        app:layout_constraintStart_toStartOf="@+id/iv_small_circle1"
+        app:layout_constraintTop_toTopOf="@+id/iv_small_circle1"
+        app:layout_constraintVertical_bias="0.76" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="60%"
+        android:textColor="@color/colorWrite"
+        android:textSize="26dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView"
+        app:layout_constraintEnd_toStartOf="@+id/iv_small_circle2"
+        app:layout_constraintHorizontal_bias="0.488"
+        app:layout_constraintStart_toStartOf="@+id/iv_small_circle3"
+        app:layout_constraintTop_toTopOf="@+id/iv_small_circle3"
+        app:layout_constraintVertical_bias="0.77" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="良"
+        android:textColor="@color/colorWrite"
+        android:textSize="26dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView4"
+        app:layout_constraintEnd_toEndOf="@+id/iv_small_circle2"
+        app:layout_constraintStart_toStartOf="@+id/iv_small_circle2"
+        app:layout_constraintTop_toTopOf="@+id/iv_small_circle3"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="中"
+        android:textColor="@color/colorWrite"
+        android:textSize="26dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView4"
+        app:layout_constraintEnd_toEndOf="@+id/iv_small_circle1"
+        app:layout_constraintStart_toStartOf="@+id/iv_small_circle1"
+        app:layout_constraintTop_toTopOf="@+id/iv_small_circle1"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iv_weather_forecast_background">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:stretchColumns="0, 1, 2">
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <android.support.constraint.ConstraintLayout
+
+                        android:layout_width="100dp"
+                        android:layout_height="170dp">
+
+                        <ImageView
+                            android:id="@+id/cl_main_bus"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_marginStart="2dp"
+                            android:layout_marginTop="2dp"
+                            android:layout_marginEnd="2dp"
+                            android:layout_marginBottom="2dp"
+                            android:background="@color/colorPrimaryLight"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/shape_rectangle_fill_light" />
+
+                        <ImageView
+                            android:layout_width="90dp"
+                            android:layout_height="130dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.17000002"
+                            app:srcCompat="@drawable/ic_bus_write" />
+
+                        <TextView
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginBottom="8dp"
+                            android:text="公車"
+                            android:textColor="@color/colorWrite"
+                            android:textSize="22dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.96" />
+                    </android.support.constraint.ConstraintLayout>
+
+                    <android.support.constraint.ConstraintLayout
+
+                        android:layout_width="100dp"
+                        android:layout_height="170dp">
+
+                        <ImageView
+                            android:id="@+id/cl_main_mrt"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_marginStart="2dp"
+                            android:layout_marginTop="2dp"
+                            android:layout_marginEnd="2dp"
+                            android:layout_marginBottom="2dp"
+                            android:background="@color/colorPrimaryLight"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/shape_rectangle_fill_light" />
+
+                        <ImageView
+                            android:layout_width="90dp"
+                            android:layout_height="130dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.17000002"
+                            app:srcCompat="@drawable/ic_mrt_write" />
+
+                        <TextView
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginBottom="8dp"
+                            android:text="捷運"
+                            android:textColor="@color/colorWrite"
+                            android:textSize="22dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.96" />
+                    </android.support.constraint.ConstraintLayout>
+
+                    <android.support.constraint.ConstraintLayout
+
+                        android:layout_width="100dp"
+                        android:layout_height="170dp">
+
+                        <ImageView
+                            android:id="@+id/cl_main_railway"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_marginStart="2dp"
+                            android:layout_marginTop="2dp"
+                            android:layout_marginEnd="2dp"
+                            android:layout_marginBottom="2dp"
+                            android:background="@color/colorPrimaryLight"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/shape_rectangle_fill_light" />
+
+                        <ImageView
+                            android:layout_width="90dp"
+                            android:layout_height="130dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.17000002"
+                            app:srcCompat="@drawable/ic_railway_write" />
+
+                        <TextView
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginBottom="8dp"
+                            android:text="台鐵"
+                            android:textColor="@color/colorWrite"
+                            android:textSize="22dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.96" />
+                    </android.support.constraint.ConstraintLayout>
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <android.support.constraint.ConstraintLayout
+                        android:id="@+id/cl_main_passenger_bus"
+                        android:layout_width="100dp"
+                        android:layout_height="170dp">
+
+                        <ImageView
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_marginStart="2dp"
+                            android:layout_marginTop="2dp"
+                            android:layout_marginEnd="2dp"
+                            android:layout_marginBottom="2dp"
+                            android:background="@color/colorPrimaryLight"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/shape_rectangle_fill_light" />
+
+                        <ImageView
+                            android:layout_width="90dp"
+                            android:layout_height="130dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.17000002"
+                            app:srcCompat="@drawable/ic_passenger_bus_write" />
+
+                        <TextView
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginBottom="8dp"
+                            android:text="客運"
+                            android:textColor="@color/colorWrite"
+                            android:textSize="22dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.96" />
+                    </android.support.constraint.ConstraintLayout>
+
+                    <android.support.constraint.ConstraintLayout
+                        android:id="@+id/cl_main_direction"
+                        android:layout_width="100dp"
+                        android:layout_height="170dp">
+
+                        <ImageView
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_marginStart="2dp"
+                            android:layout_marginTop="2dp"
+                            android:layout_marginEnd="2dp"
+                            android:layout_marginBottom="2dp"
+                            android:background="@color/colorPrimaryLight"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/shape_rectangle_fill_light" />
+
+                        <ImageView
+                            android:layout_width="90dp"
+                            android:layout_height="130dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.17000002"
+                            app:srcCompat="@drawable/ic_direction_write" />
+
+                        <TextView
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginBottom="8dp"
+                            android:text="路線規劃"
+                            android:textColor="@color/colorWrite"
+                            android:textSize="22dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.96" />
+                    </android.support.constraint.ConstraintLayout>
+
+                    <android.support.constraint.ConstraintLayout
+                        android:id="@+id/cl_main_favorate"
+                        android:layout_width="100dp"
+                        android:layout_height="170dp">
+
+                        <ImageView
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_marginStart="2dp"
+                            android:layout_marginTop="2dp"
+                            android:layout_marginEnd="2dp"
+                            android:layout_marginBottom="2dp"
+                            android:background="@color/colorPrimaryLight"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/shape_rectangle_fill_light" />
+
+                        <ImageView
+                            android:layout_width="90dp"
+                            android:layout_height="130dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.17000002"
+                            app:srcCompat="@drawable/ic_favorate_write" />
+
+                        <TextView
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginBottom="8dp"
+                            android:text="我的最愛"
+                            android:textColor="@color/colorWrite"
+                            android:textSize="22dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.96" />
+                    </android.support.constraint.ConstraintLayout>
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <android.support.constraint.ConstraintLayout
+                        android:id="@+id/cl_more"
+                        android:layout_width="100dp"
+                        android:layout_height="170dp">
+
+                        <ImageView
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_marginStart="2dp"
+                            android:layout_marginTop="2dp"
+                            android:layout_marginEnd="2dp"
+                            android:layout_marginBottom="2dp"
+                            android:background="@color/colorPrimaryLight"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/shape_rectangle_fill_light" />
+
+                        <ImageView
+                            android:layout_width="90dp"
+                            android:layout_height="130dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.17000002"
+                            app:srcCompat="@drawable/ic_more_write" />
+
+                        <TextView
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginBottom="8dp"
+                            android:text="更多"
+                            android:textColor="@color/colorWrite"
+                            android:textSize="22dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.96" />
+                    </android.support.constraint.ConstraintLayout>
+
+
+                </TableRow>
+            </TableLayout>
+        </LinearLayout>
+    </ScrollView>
 
 </android.support.constraint.ConstraintLayout>

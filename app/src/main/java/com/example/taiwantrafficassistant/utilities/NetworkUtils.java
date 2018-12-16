@@ -44,6 +44,15 @@ public class NetworkUtils {
      */
     final static String PTX_BASE_URL =
             "http://140.136.149.241/tests/download.php?ID=a55c64f5cf2d46c2908ed29af853880c&KEY=rL4dhGhxs7smLvAtSusvXF2qPcI&url=";
+    //BUS_ROUTE_SEARCH
+    final static String PTX_BUS_ROUTE_SEARCH_BASE_ONE = "https://ptx.transportdata.tw/MOTC/v2/Bus/Route/City/Taipei/";
+    final static String PTX_BUS_ROUTE_SEARCH_BASE_TWO = "?$format=JSON";
+
+    //BUS_STOP
+    final static String PTX_BUS_STOP_ONE = "https://ptx.transportdata.tw/MOTC/v2/Bus/StopOfRoute/City/Taipei/";
+    final static String PTX_BUS_STOP_TWO = "?$select=Stops%2CRouteName&$filter=RouteName%2FZh_tw%20eq%20'";
+    final static String PTX_BUS_STOP_THREE = "'&$top=1&$format=JSON";
+
 
     /**
      * 建構GithubSearchQuery URL
@@ -66,12 +75,17 @@ public class NetworkUtils {
 
         return url;
     }
+
+
     /**
      *
      */
     public static URL buildPtxSearchQueryUrl(String ptxSearchQuery) {
         StringBuilder strUrl = new StringBuilder(PTX_BASE_URL);
+        strUrl.append(PTX_BUS_ROUTE_SEARCH_BASE_ONE);
         strUrl.append(ptxSearchQuery);
+        strUrl.append(PTX_BUS_ROUTE_SEARCH_BASE_TWO);
+
         URL url = null;
         try {
             url = new URL(strUrl.toString());
@@ -81,13 +95,20 @@ public class NetworkUtils {
 
         return url;
     }
+
+
 
     /**
      *
      */
-    public static URL buildPtxArrivalTimeQueryUrl(String ptxSearchQuery) {
+    public static URL buildPtxBusStop(String ptxSearchQuery) {
         StringBuilder strUrl = new StringBuilder(PTX_BASE_URL);
+        strUrl.append(PTX_BUS_STOP_ONE);
         strUrl.append(ptxSearchQuery);
+        strUrl.append(PTX_BUS_STOP_TWO);
+        strUrl.append(ptxSearchQuery);
+        strUrl.append(PTX_BUS_STOP_THREE);
+
         URL url = null;
         try {
             url = new URL(strUrl.toString());
@@ -97,6 +118,8 @@ public class NetworkUtils {
 
         return url;
     }
+
+
     /**
      * This method returns the entire result from the HTTP response.
      *

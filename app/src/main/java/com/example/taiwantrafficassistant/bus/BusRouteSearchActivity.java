@@ -6,8 +6,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.ContextMenu;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -22,7 +24,9 @@ import org.json.JSONException;
 import java.io.IOException;
 import java.net.URL;
 
-public class BusRouteSearchActivity extends AppCompatActivity implements BusRouteAdapter.ListItemClickListener{
+public class BusRouteSearchActivity extends AppCompatActivity
+        implements BusRouteAdapter.ListItemClickListener
+        {
     private Toast mToast;
     private static final int NUM_LIST_ITEMS = 100;
     private TextView mResult;
@@ -38,43 +42,22 @@ public class BusRouteSearchActivity extends AppCompatActivity implements BusRout
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bus_route_search);
-        /*
-         * Using findViewById, we get a reference to our RecyclerView from xml. This allows us to
-         * do things like set the adapter of the RecyclerView and toggle the visibility.
-         */
+        //bind view
         mNumbersList = findViewById(R.id.rv_bus_route);
         mResult = findViewById(R.id.tv_ptx_json_handled);
         mInput = findViewById(R.id.et_bus_route_search_box);
 
-
-
-        /*
-         * A LinearLayoutManager is responsible for measuring and positioning item views within a
-         * RecyclerView into a linear list. This means that it can produce either a horizontal or
-         * vertical list depending on which parameter you pass in to the LinearLayoutManager
-         * constructor. By default, if you don't specify an orientation, you get a vertical list.
-         * In our case, we want a vertical list, so we don't need to pass in an orientation flag to
-         * the LinearLayoutManager constructor.
-         *
-         * There are other LayoutManagers available to display your data in uniform grids,
-         * staggered grids, and more! See the developer documentation for more details.
-         */
+        //recyclerView setup
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         mNumbersList.setLayoutManager(layoutManager);
-
-        /*
-         * Use this setting to improve performance if you know that changes in content do not
-         * change the child layout size in the RecyclerView
-         */
         mNumbersList.setHasFixedSize(true);
-
-        // COMPLETED (13) Pass in this as the ListItemClickListener to the GreenAdapter constructor
-        /*
-         * The GreenAdapter is responsible for displaying each item in the list.
-         */
         mAdapter = new BusRouteAdapter(NUM_LIST_ITEMS, this);
         mNumbersList.setAdapter(mAdapter);
+
+
+        //this.registerForContextMenu(mNumbersList);
     }
+
     public  void makeRouteSearchQuery(){
         new QueryTask().execute(mInput.getText().toString());
     }
@@ -84,6 +67,7 @@ public class BusRouteSearchActivity extends AppCompatActivity implements BusRout
         protected void onPreExecute() {
             super.onPreExecute();
         }
+
         @Override
         protected String[] doInBackground(String... params) {
             String strUrl = params[0];
@@ -120,26 +104,10 @@ public class BusRouteSearchActivity extends AppCompatActivity implements BusRout
 
     @Override
     public void onListItemClick(int clickedItemIndex) {
-        // COMPLETED (11) In the beginning of the method, cancel the Toast if it isn't null
-        /*
-         * Even if a Toast isn't showing, it's okay to cancel it. Doing so
-         * ensures that our new Toast will show immediately, rather than
-         * being delayed while other pending Toasts are shown.
-         *
-         * Comment out these three lines, run the app, and click on a bunch of
-         * different items if you're not sure what I'm talking about.
-         */
         if (mToast != null) {
             mToast.cancel();
         }
 
-        // COMPLETED (12) Show a Toast when an item is clicked, displaying that item number that was clicked
-        /*
-         * Create a Toast and store it in our Toast field.
-         * The Toast that shows up will have a message similar to the following:
-         *
-         *                     Item #42 clicked.
-         */
         String toastMessage = "Item #" + clickedItemIndex +" " +mPositionMap[clickedItemIndex] +" clicked.";
 
         mToast = Toast.makeText(this, toastMessage, Toast.LENGTH_LONG);
@@ -167,5 +135,16 @@ public class BusRouteSearchActivity extends AppCompatActivity implements BusRout
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
+        super.onCreateContextMenu(menu, v, menuInfo);
+        //设置Menu显示内容
+        menu.setHeaderTitle("文件操作");
+        //menu.setHeaderIcon(R.drawable.file);
+        menu.add(1, 100, 1, "复制");
+        menu.add(1, 101, 1, "剪切");
+        menu.add(1, 102, 1, "粘贴");
     }
 }
