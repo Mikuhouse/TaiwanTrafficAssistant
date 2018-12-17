@@ -16,7 +16,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.net.URLEncoder;
 
-public class BusTimeOfArrivalActivity extends AppCompatActivity {
+public class   BusTimeOfArrivalActivity extends AppCompatActivity {
 
     TextView mDisplayText;
     String routeNameToSearch = null;
