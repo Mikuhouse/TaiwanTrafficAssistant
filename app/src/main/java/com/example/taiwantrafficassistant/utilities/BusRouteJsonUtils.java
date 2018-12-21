@@ -23,17 +23,24 @@ public class BusRouteJsonUtils {
 
     public static String[] getSimpleRouteStopFromJson(String stopResult)
             throws JSONException {
-        JSONObject original = new JSONObject(stopResult);
-        JSONArray stopsArray = original.getJSONArray("Stops");
+        System.out.println(stopResult);
+        JSONArray original = new JSONArray(stopResult);
+        System.out.println("original: " + original.toString());
+        JSONObject tmp = original.getJSONObject(0);
+        System.out.println("tmp:" + tmp.toString());
+        JSONArray stopsArray = tmp.getJSONArray("Stops");
+        System.out.println(stopsArray.length());
         String[] parsedRouteData = new String[stopsArray.length()];
+
         for (int i = 0; i < stopsArray.length(); i++) {
             JSONObject jsonObject = stopsArray.getJSONObject(i);
-            JSONObject StopName = jsonObject.getJSONObject("StopName");
-            String stopText = StopName.getString("Zh_tw");
+            JSONObject stopName = jsonObject.getJSONObject("StopName");
+            String stopText = stopName.getString("Zh_tw");
             System.out.println(stopText);
             //Log.d("TAG", "title:" + title + ", tag:" + tag + ", info:" + info);
             parsedRouteData[i] = stopText;
         }
+
         return parsedRouteData;
 
     }
