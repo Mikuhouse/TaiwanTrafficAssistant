@@ -1,9 +1,10 @@
-package com.example.taiwantrafficassistant.bus;
+package com.example.taiwantrafficassistant.controller.utilities.color;
 
 import android.content.Context;
 import android.graphics.Color;
 import android.support.v4.content.ContextCompat;
 import com.example.taiwantrafficassistant.R;
+import com.example.taiwantrafficassistant.controller.bus.adapter.BusRouteAdapter;
 
 /**
  * ColorUtils is a class with one method, used to color the ViewHolders in
@@ -18,13 +19,13 @@ public class ColorUtils {
     /**
      * This method returns the appropriate shade of green to form the gradient
      * seen in the list, based off of the order in which the
-     * {@link com.example.taiwantrafficassistant.bus.BusRouteAdapter.NumberViewHolder}
+     * {@link BusRouteAdapter.NumberViewHolder}
      * instance was created.
      *
      * This method is used to show how ViewHolders are recycled in a RecyclerView.
      * At first, the colors will form a nice, consistent gradient. As the
      * RecyclerView is scrolled, the
-     * {@link com.example.taiwantrafficassistant.bus.BusRouteAdapter.NumberViewHolder}'s will be
+     * {@link BusRouteAdapter.NumberViewHolder}'s will be
      * recycled and the list will no longer appear as a consistent gradient.
      *
      * @param context     Context for getting colors

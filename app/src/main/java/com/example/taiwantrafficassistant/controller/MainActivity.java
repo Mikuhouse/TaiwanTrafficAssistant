@@ -1,18 +1,16 @@
-package com.example.taiwantrafficassistant;
+package com.example.taiwantrafficassistant.controller;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.TextView;
 
-import com.example.taiwantrafficassistant.bus.BusListActivity;
-import com.example.taiwantrafficassistant.mrt.MrtMapWebviewActivity;
-import com.example.taiwantrafficassistant.test.TableLayoutTestActivity;
+import com.example.taiwantrafficassistant.R;
+import com.example.taiwantrafficassistant.controller.bus.activity.BusListActivity;
+import com.example.taiwantrafficassistant.controller.mrt.MrtMapWebviewActivity;
 import com.example.taiwantrafficassistant.test.TestGithubRepoApiActivity;
 import com.example.taiwantrafficassistant.test.TestPtxApiActivity;
 

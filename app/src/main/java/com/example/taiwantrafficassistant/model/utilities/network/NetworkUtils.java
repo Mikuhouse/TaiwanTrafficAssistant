@@ -1,4 +1,4 @@
-package com.example.taiwantrafficassistant.utilities;
+package com.example.taiwantrafficassistant.model.utilities.network;
 
 import android.net.Uri;
 

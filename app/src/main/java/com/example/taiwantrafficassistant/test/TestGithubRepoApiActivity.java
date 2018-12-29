@@ -11,7 +11,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.example.taiwantrafficassistant.R;
-import com.example.taiwantrafficassistant.utilities.NetworkUtils;
+import com.example.taiwantrafficassistant.model.utilities.network.NetworkUtils;
 
 import java.io.IOException;
 import java.net.URL;

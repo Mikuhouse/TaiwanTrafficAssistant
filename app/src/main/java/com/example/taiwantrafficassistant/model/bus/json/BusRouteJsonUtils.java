@@ -1,4 +1,4 @@
-package com.example.taiwantrafficassistant.utilities;
+package com.example.taiwantrafficassistant.model.bus.json;
 
 import org.json.JSONArray;
 import org.json.JSONException;

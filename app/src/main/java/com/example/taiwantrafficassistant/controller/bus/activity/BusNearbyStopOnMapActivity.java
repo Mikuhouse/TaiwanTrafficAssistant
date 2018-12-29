@@ -1,4 +1,4 @@
-package com.example.taiwantrafficassistant.bus;
+package com.example.taiwantrafficassistant.controller.bus.activity;
 
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;

@@ -1,4 +1,4 @@
-package com.example.taiwantrafficassistant.bus;
+package com.example.taiwantrafficassistant.controller.bus.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -8,7 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import com.example.taiwantrafficassistant.R;
-import android.view.ContextMenu;
+import com.example.taiwantrafficassistant.controller.utilities.color.ColorUtils;
 
 public class BusRouteAdapter extends RecyclerView.Adapter<BusRouteAdapter.NumberViewHolder> {
 
@@ -16,7 +16,7 @@ public class BusRouteAdapter extends RecyclerView.Adapter<BusRouteAdapter.Number
 
     final private ListItemClickListener mOnClickListener;
 
-    private static int viewHolderCount;
+    public static int viewHolderCount;
 
     private int mNumberItems;
 

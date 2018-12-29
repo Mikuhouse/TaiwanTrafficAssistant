@@ -22,7 +22,7 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".MainActivity">
+        <activity android:name=".controller.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -30,37 +30,37 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".bus.BusListActivity"
+            android:name=".controller.bus.activity.BusListActivity"
             android:label="@string/bus_list_activity_label">
 
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity" />
+                android:value=".controller.MainActivity" />
         </activity>
         <activity
-            android:name=".bus.BusRouteSearchActivity"
+            android:name=".controller.bus.activity.BusRouteSearchActivity"
             android:label="@string/bus_route_search_label">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".bus.BusListActivity" />
+                android:value=".controller.bus.activity.BusListActivity" />
         </activity>
         <activity
             android:name=".test.TestGithubRepoApiActivity"
             android:label="@string/test_github_repo_api_label">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".bus.BusListActivity" />
+                android:value=".controller.bus.activity.BusListActivity" />
         </activity>
         <activity
             android:name=".test.TestPtxApiActivity"
             android:label="PtxRailWayApiTest">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".bus.BusListActivity" />
+                android:value=".controller.bus.activity.BusListActivity" />
         </activity>
         <activity
-            android:name=".bus.BusTimeOfArrivalActivity"
+            android:name=".controller.bus.activity.BusTimeOfArrivalActivity"
             android:label="公車到站時間" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
@@ -75,11 +75,11 @@
             android:value="@string/google_maps_key" />
 
         <activity
-            android:name=".bus.BusNearbyStopOnMapActivity"
+            android:name=".controller.bus.activity.BusNearbyStopOnMapActivity"
             android:label="@string/title_activity_bus_nearby_stop_on_map" />
-        <activity android:name=".bus.BusFavorateActivity" />
-        <activity android:name=".mrt.MrtListActivity" />
-        <activity android:name=".mrt.MrtMapWebviewActivity" />
+        <activity android:name=".controller.bus.activity.BusFavorateActivity" />
+        <activity android:name=".controller.mrt.MrtListActivity" />
+        <activity android:name=".controller.mrt.MrtMapWebviewActivity" />
         <activity android:name=".test.TableLayoutTestActivity"></activity>
     </application>
 

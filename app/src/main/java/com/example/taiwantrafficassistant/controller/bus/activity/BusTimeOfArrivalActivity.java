@@ -1,4 +1,4 @@
-package com.example.taiwantrafficassistant.bus;
+package com.example.taiwantrafficassistant.controller.bus.activity;
 
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -7,12 +7,9 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 import com.example.taiwantrafficassistant.R;
-import com.example.taiwantrafficassistant.utilities.BusRouteJsonUtils;
-import com.example.taiwantrafficassistant.utilities.NetworkUtils;
-import com.example.taiwantrafficassistant.utilities.BusRouteJsonUtils;
-import org.json.JSONException;
+import com.example.taiwantrafficassistant.model.bus.json.BusRouteJsonUtils;
+import com.example.taiwantrafficassistant.model.utilities.network.NetworkUtils;
 
-import java.io.IOException;
 import java.net.URL;
 import java.net.URLEncoder;
 
