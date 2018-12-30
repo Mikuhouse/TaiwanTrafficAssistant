@@ -2,6 +2,7 @@ package com.example.taiwantrafficassistant.controller.bus.estimatedTimeAndStops;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -11,10 +12,13 @@ import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.example.taiwantrafficassistant.model.bus.api.BusTimeOfArrivalAsync;
+
 
 import com.example.taiwantrafficassistant.R;
+import com.example.taiwantrafficassistant.model.bus.json.StopsAndEstimateTimeJsonAnalysis;
+import com.example.taiwantrafficassistant.model.utilities.network.NetworkUtils;
 
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,10 +41,10 @@ public class   BusTimeOfArrivalActivity extends AppCompatActivity {
             String textEntered = intentThatStartedThisActivity.getStringExtra(Intent.EXTRA_TEXT);
             routeNameToSearch = textEntered;
             setTitle(routeNameToSearch);
-            //updateInformation();
+            updateInformation();
 
-            List<Information> informationList = getIformationList();
-            mLvEstimattedTimeAndStops.setAdapter(new MemberAdapter(this, informationList));
+
+
         }else{
             setTitle("Null");
         }
@@ -48,9 +52,9 @@ public class   BusTimeOfArrivalActivity extends AppCompatActivity {
     }
     private class MemberAdapter extends BaseAdapter {
         Context context;
-        List<Information> informationList;
+        List<StopsAndEstimatedTimeInformation> informationList;
 
-        MemberAdapter(Context context, List<Information> informationList) {
+        MemberAdapter(Context context, List<StopsAndEstimatedTimeInformation> informationList) {
             this.context = context;
             this.informationList = informationList;
         }
@@ -75,7 +79,7 @@ public class   BusTimeOfArrivalActivity extends AppCompatActivity {
                 itemView.findViewById(R.id.iv_top_bar).setVisibility(View.VISIBLE);
                 itemView.findViewById(R.id.iv_bottom_bar).setVisibility(View.VISIBLE);
             }
-            Information information = informationList.get(position);
+            StopsAndEstimatedTimeInformation information = informationList.get(position);
 
             TextView tvStopName = itemView.findViewById(R.id.tv_stop_name);
             tvStopName.setText(information.getStopName());
@@ -101,20 +105,63 @@ public class   BusTimeOfArrivalActivity extends AppCompatActivity {
             更新資訊
      */
     public void updateInformation(){
-        //(new BusTimeOfArrivalAsync()).execute(routeNameToSearch);
-
+        (new BusTimeOfArrivalAsync()).execute(routeNameToSearch);
     }
-    public void reloadListItem(String[] Information){
 
+    public void reloadListItem(List<StopsAndEstimatedTimeInformation> informationList){
+        //TextView tvTest = findViewById(R.id.tv_bus_test);
+        //tvTest.setText(information);
+        mLvEstimattedTimeAndStops.setAdapter(new MemberAdapter(this, informationList));
     }
-    public List<Information> getIformationList(){
-        List<Information> informationList = new ArrayList<>();
-        informationList.add(new Information("新莊站", 20));
-        informationList.add(new Information("2", 21));
-        informationList.add(new Information("3", 22));
-        informationList.add(new Information("4", 23));
+
+    public class BusTimeOfArrivalAsync extends AsyncTask<String, Void, List<StopsAndEstimatedTimeInformation>> {
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+        }
+
+        @Override
+        protected List<StopsAndEstimatedTimeInformation> doInBackground(String... params) {
+            URL url = StopsAndEstimateTimeJsonAnalysis.buildUrl(params[0]);
+            String jsonResponse = null;
+            if(url == null){
+                return null;
+            }else{
+                try{
+                    jsonResponse = NetworkUtils.getResponseFromHttpUrl(url);
+                }catch (Exception e){
+                    System.out.println("Error:NetworkUtils.getResponseFromHttpUrl(url);");
+                }
+            }
+            //return jsonResponse;
+            List<StopsAndEstimatedTimeInformation> result = null;
+            if(jsonResponse == null) {
+                return null;
+            }else{
+                result = StopsAndEstimateTimeJsonAnalysis.analysisResponse(jsonResponse);
+            }
+            return result;
+        }
+
+        @Override
+        protected void onPostExecute(List<StopsAndEstimatedTimeInformation> result) {
+            if(result != null){
+                reloadListItem(result);
+
+            }else {
+
+            }
+        }
+    }
+
+    public List<StopsAndEstimatedTimeInformation> getIformationList(){
+        List<StopsAndEstimatedTimeInformation> informationList = new ArrayList<>();
+        informationList.add(new StopsAndEstimatedTimeInformation("新莊站", 20));
+        informationList.add(new StopsAndEstimatedTimeInformation("2", 21));
+        informationList.add(new StopsAndEstimatedTimeInformation("3", 22));
+        informationList.add(new StopsAndEstimatedTimeInformation("4", 23));
         for(int i = 0;i < 100;i++){
-            informationList.add(new Information("4", 23));
+            informationList.add(new StopsAndEstimatedTimeInformation("4", 23));
         }
         return informationList;
     }

@@ -1,13 +1,13 @@
 package com.example.taiwantrafficassistant.controller.bus.estimatedTimeAndStops;
 
-public class Information {
+public class StopsAndEstimatedTimeInformation {
     private String mStopName;
     private int mEstimatedTime;
 
-    public Information() {
+    public StopsAndEstimatedTimeInformation() {
         super();
     }
-    public Information(String stopName, int estimatedTime) {
+    public StopsAndEstimatedTimeInformation(String stopName, int estimatedTime) {
         super();
         this.mStopName = stopName;
         this.mEstimatedTime = estimatedTime;
