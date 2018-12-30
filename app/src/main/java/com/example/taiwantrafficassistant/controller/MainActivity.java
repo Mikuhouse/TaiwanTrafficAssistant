@@ -9,7 +9,7 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.example.taiwantrafficassistant.R;
-import com.example.taiwantrafficassistant.controller.bus.activity.BusListActivity;
+import com.example.taiwantrafficassistant.controller.bus.mainFunctionList.BusListActivity;
 import com.example.taiwantrafficassistant.controller.mrt.MrtMapWebviewActivity;
 import com.example.taiwantrafficassistant.test.TestGithubRepoApiActivity;
 import com.example.taiwantrafficassistant.test.TestPtxApiActivity;

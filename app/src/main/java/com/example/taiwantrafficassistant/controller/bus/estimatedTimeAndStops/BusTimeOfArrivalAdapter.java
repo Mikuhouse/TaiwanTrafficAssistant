@@ -8,10 +8,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import com.example.taiwantrafficassistant.R;
-import com.example.taiwantrafficassistant.controller.bus.adapter.BusRouteAdapter;
+import com.example.taiwantrafficassistant.controller.bus.routeSearch.BusRouteAdapter;
 import com.example.taiwantrafficassistant.controller.utilities.color.ColorUtils;
 
-public class BusTimeOfArrivalAdapter extends RecyclerView.Adapter<BusTimeOfArrivalAdapter.StopViewHolder> {
+public class BusTimeOfArrivalAdapter{
+        /*extends RecyclerView.Adapter<BusTimeOfArrivalAdapter.StopViewHolder> {
 
     private static final String TAG = BusRouteAdapter.class.getSimpleName();
 
@@ -47,6 +48,7 @@ public class BusTimeOfArrivalAdapter extends RecyclerView.Adapter<BusTimeOfArriv
     /**
      * ViewHolder
      */
+        /*
     class StopViewHolder extends RecyclerView.ViewHolder
             implements View.OnClickListener
     {
@@ -98,4 +100,5 @@ public class BusTimeOfArrivalAdapter extends RecyclerView.Adapter<BusTimeOfArriv
         busRouteAdapterViewHolder.viewHolderIndex.setText(weatherForThisDay);
         busRouteAdapterViewHolder.listItemNumberView.setText(position+"");
     }
+    */
 }

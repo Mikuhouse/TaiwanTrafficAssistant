@@ -32,11 +32,7 @@ public class NetworkUtils {
     //BUS_ROUTE_SEARCH
     final static String PTX_BUS_ROUTE_SEARCH_BASE_ONE = "https://ptx.transportdata.tw/MOTC/v2/Bus/Route/City/Taipei/";
     final static String PTX_BUS_ROUTE_SEARCH_BASE_TWO = "?$format=JSON";
-
-    //BUS_STOP
-    final static String PTX_BUS_STOP_ONE = "https://ptx.transportdata.tw/MOTC/v2/Bus/StopOfRoute/City/Taipei/";
-    final static String PTX_BUS_STOP_TWO = "?$select=Stops%2CRouteName&$filter=RouteName%2FZh_tw%20eq%20'";
-    final static String PTX_BUS_STOP_THREE = "'&$top=1&$format=JSON";
+    final static String PTX_BUS_ROUTE_SEARCH_BASE_ONE_AL = "https://ptx.transportdata.tw/MOTC/v2/Bus/Route/City/NewTaipei/";
 
 
     /**
@@ -81,25 +77,11 @@ public class NetworkUtils {
         return url;
     }
 
-
-
-    /**
-     *
-     */
-    public static URL buildPtxBusStop(String ptxSearchQuery) {
+    public static URL buildPtxSearchQueryTwoUrl(String ptxSearchQuery) {
         StringBuilder strUrl = new StringBuilder(PTX_BASE_URL);
-        StringBuilder strPtxSearchQueryUrl = new StringBuilder("");
-        strPtxSearchQueryUrl.append(PTX_BUS_STOP_ONE);
-        strPtxSearchQueryUrl.append(ptxSearchQuery);
-        strPtxSearchQueryUrl.append(PTX_BUS_STOP_TWO);
-        strPtxSearchQueryUrl.append(ptxSearchQuery);
-        strPtxSearchQueryUrl.append(PTX_BUS_STOP_THREE);
-
-        try {
-            strUrl.append(URLEncoder.encode(strPtxSearchQueryUrl.toString(), "UTF-8"));
-        }catch (Exception e){
-            System.out.println("Encoding failed");
-        }
+        strUrl.append(PTX_BUS_ROUTE_SEARCH_BASE_ONE_AL);
+        strUrl.append(ptxSearchQuery);
+        strUrl.append(PTX_BUS_ROUTE_SEARCH_BASE_TWO);
 
         URL url = null;
         try {

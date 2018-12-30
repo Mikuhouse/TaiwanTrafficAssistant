@@ -4,7 +4,7 @@ import android.content.Context;
 import android.graphics.Color;
 import android.support.v4.content.ContextCompat;
 import com.example.taiwantrafficassistant.R;
-import com.example.taiwantrafficassistant.controller.bus.adapter.BusRouteAdapter;
+import com.example.taiwantrafficassistant.controller.bus.routeSearch.BusRouteAdapter;
 
 /**
  * ColorUtils is a class with one method, used to color the ViewHolders in

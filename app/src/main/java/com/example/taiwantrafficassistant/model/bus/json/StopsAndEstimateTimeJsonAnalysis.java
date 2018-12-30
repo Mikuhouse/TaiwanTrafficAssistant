@@ -12,10 +12,11 @@ import org.json.JSONObject;
 
 public class StopsAndEstimateTimeJsonAnalysis {
     private static String mBaseUrlOne = "http://140.136.149.241/tests/routeEst.php?route=";
-    private static String mBaseUrlTwo = "&dir=0&ID=a55c64f5cf2d46c2908ed29af853880c&KEY=rL4dhGhxs7smLvAtSusvXF2qPcI";
-    public static URL buildUrl(String query){
+    private static String mBaseUrlTwo = "&dir=";
+    private static String mBaseUrlThree = "&ID=a55c64f5cf2d46c2908ed29af853880c&KEY=rL4dhGhxs7smLvAtSusvXF2qPcI";
+    public static URL buildUrl(String query, String dir){
         StringBuilder tmp = new StringBuilder(mBaseUrlOne);
-        tmp.append(query).append(mBaseUrlTwo);
+        tmp.append(query).append(mBaseUrlTwo).append(dir).append(mBaseUrlThree);
 
         URL result = null;
         try {

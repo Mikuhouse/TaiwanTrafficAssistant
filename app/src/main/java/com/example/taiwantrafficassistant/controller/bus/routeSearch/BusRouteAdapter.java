@@ -1,4 +1,4 @@
-package com.example.taiwantrafficassistant.controller.bus.adapter;
+package com.example.taiwantrafficassistant.controller.bus.routeSearch;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -9,9 +9,9 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import com.example.taiwantrafficassistant.R;
 import com.example.taiwantrafficassistant.controller.utilities.color.ColorUtils;
-
-public class BusRouteAdapter extends RecyclerView.Adapter<BusRouteAdapter.NumberViewHolder> {
-
+public class BusRouteAdapter {
+        //extends RecyclerView.Adapter<BusRouteAdapter.NumberViewHolder> {
+    /*
     private static final String TAG = BusRouteAdapter.class.getSimpleName();
 
     final private ListItemClickListener mOnClickListener;
@@ -75,6 +75,7 @@ public class BusRouteAdapter extends RecyclerView.Adapter<BusRouteAdapter.Number
     /**
      * ViewHolder
      */
+    /*
     class NumberViewHolder extends RecyclerView.ViewHolder
             implements View.OnClickListener
     {
@@ -97,5 +98,6 @@ public class BusRouteAdapter extends RecyclerView.Adapter<BusRouteAdapter.Number
             mOnClickListener.onListItemClick(clickedPosition);
         }
     }
+    */
 }
 

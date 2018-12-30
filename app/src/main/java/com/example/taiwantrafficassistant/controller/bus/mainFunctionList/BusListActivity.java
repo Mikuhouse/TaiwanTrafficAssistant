@@ -1,4 +1,4 @@
-package com.example.taiwantrafficassistant.controller.bus.activity;
+package com.example.taiwantrafficassistant.controller.bus.mainFunctionList;
 
 import android.content.Intent;
 import android.support.constraint.ConstraintLayout;
@@ -7,6 +7,9 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.example.taiwantrafficassistant.R;
+import com.example.taiwantrafficassistant.controller.bus.activity.BusFavorateActivity;
+import com.example.taiwantrafficassistant.controller.bus.activity.BusNearbyStopOnMapActivity;
+import com.example.taiwantrafficassistant.controller.bus.routeSearch.BusRouteSearchActivity;
 
 public class BusListActivity extends AppCompatActivity {
     //TODO 建立公車功能列表

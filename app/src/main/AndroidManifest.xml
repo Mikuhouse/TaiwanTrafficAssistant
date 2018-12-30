@@ -30,7 +30,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".controller.bus.activity.BusListActivity"
+            android:name=".controller.bus.mainFunctionList.BusListActivity"
             android:label="@string/bus_list_activity_label">
 
             <!-- Parent activity meta-data to support 4.0 and lower -->
@@ -39,25 +39,25 @@
                 android:value=".controller.MainActivity" />
         </activity>
         <activity
-            android:name=".controller.bus.activity.BusRouteSearchActivity"
+            android:name=".controller.bus.routeSearch.BusRouteSearchActivity"
             android:label="@string/bus_route_search_label">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".controller.bus.activity.BusListActivity" />
+                android:value=".controller.bus.mainFunctionList.BusListActivity" />
         </activity>
         <activity
             android:name=".test.TestGithubRepoApiActivity"
             android:label="@string/test_github_repo_api_label">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".controller.bus.activity.BusListActivity" />
+                android:value=".controller.bus.mainFunctionList.BusListActivity" />
         </activity>
         <activity
             android:name=".test.TestPtxApiActivity"
             android:label="PtxRailWayApiTest">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".controller.bus.activity.BusListActivity" />
+                android:value=".controller.bus.mainFunctionList.BusListActivity" />
         </activity>
         <activity
             android:name=".controller.bus.estimatedTimeAndStops.BusTimeOfArrivalActivity"
