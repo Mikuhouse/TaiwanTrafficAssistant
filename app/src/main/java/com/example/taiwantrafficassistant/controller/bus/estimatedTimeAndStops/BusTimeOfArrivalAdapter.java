@@ -1,4 +1,4 @@
-package com.example.taiwantrafficassistant.controller.bus.adapter;
+package com.example.taiwantrafficassistant.controller.bus.estimatedTimeAndStops;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import com.example.taiwantrafficassistant.R;
+import com.example.taiwantrafficassistant.controller.bus.adapter.BusRouteAdapter;
 import com.example.taiwantrafficassistant.controller.utilities.color.ColorUtils;
 
 public class BusTimeOfArrivalAdapter extends RecyclerView.Adapter<BusTimeOfArrivalAdapter.StopViewHolder> {

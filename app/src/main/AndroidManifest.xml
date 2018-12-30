@@ -60,7 +60,7 @@
                 android:value=".controller.bus.activity.BusListActivity" />
         </activity>
         <activity
-            android:name=".controller.bus.activity.BusTimeOfArrivalActivity"
+            android:name=".controller.bus.estimatedTimeAndStops.BusTimeOfArrivalActivity"
             android:label="公車到站時間" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.

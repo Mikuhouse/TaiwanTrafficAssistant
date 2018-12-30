@@ -16,6 +16,7 @@ import android.widget.Toast;
 
 import com.example.taiwantrafficassistant.R;
 import com.example.taiwantrafficassistant.controller.bus.adapter.BusRouteAdapter;
+import com.example.taiwantrafficassistant.controller.bus.estimatedTimeAndStops.BusTimeOfArrivalActivity;
 import com.example.taiwantrafficassistant.model.bus.json.BusRouteJsonUtils;
 import com.example.taiwantrafficassistant.model.utilities.network.NetworkUtils;
 
