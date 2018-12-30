@@ -75,7 +75,7 @@
             android:value="@string/google_maps_key" />
 
         <activity
-            android:name=".controller.bus.activity.BusNearbyStopOnMapActivity"
+            android:name=".controller.bus.NearbyStop.BusNearbyStopOnMapActivity"
             android:label="@string/title_activity_bus_nearby_stop_on_map" />
         <activity android:name=".controller.bus.activity.BusFavorateActivity" />
         <activity android:name=".controller.mrt.MrtListActivity" />

@@ -8,7 +8,7 @@ import android.view.View;
 
 import com.example.taiwantrafficassistant.R;
 import com.example.taiwantrafficassistant.controller.bus.activity.BusFavorateActivity;
-import com.example.taiwantrafficassistant.controller.bus.activity.BusNearbyStopOnMapActivity;
+import com.example.taiwantrafficassistant.controller.bus.NearbyStop.BusNearbyStopOnMapActivity;
 import com.example.taiwantrafficassistant.controller.bus.routeSearch.BusRouteSearchActivity;
 
 public class BusListActivity extends AppCompatActivity {
