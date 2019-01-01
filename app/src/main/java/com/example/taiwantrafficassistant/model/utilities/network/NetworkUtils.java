@@ -118,10 +118,9 @@ public class NetworkUtils {
      */
     public static String getResponseFromHttpUrl(URL url) throws IOException {
         //URLEncoder.encode(url.toString());
-        URLConnection urlConnection = url.openConnection();
+        URLConnection urlConnection =url.openConnection();
         try {
             InputStream in = urlConnection.getInputStream();
-
             Scanner scanner = new Scanner(in);
             scanner.useDelimiter("\\A");
 

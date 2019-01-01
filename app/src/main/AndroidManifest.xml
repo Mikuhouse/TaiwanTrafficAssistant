@@ -92,7 +92,10 @@
                 android:value=".controller.bus.activity.BusFavorateActivity" />
         </activity>
         <activity android:name=".test.TableLayoutTestActivity" />
-        <activity android:name=".controller.railway.RailWayWebview"></activity>
+        <activity android:name=".controller.railway.RailWayWebview" />
+        <activity
+            android:name=".controller.mrt.MrtNearbyActivity"
+            android:label="@string/title_activity_mrt_nearby"></activity>
     </application>
 
 </manifest>

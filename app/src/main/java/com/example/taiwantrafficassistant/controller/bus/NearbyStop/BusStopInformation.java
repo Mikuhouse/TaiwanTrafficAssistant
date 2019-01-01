@@ -3,22 +3,22 @@ package com.example.taiwantrafficassistant.controller.bus.NearbyStop;
 import com.example.taiwantrafficassistant.controller.bus.routeSearch.BusRouteInformation;
 
 public class BusStopInformation {
-    private float latitude = 0;
-    private float longitude = 0;
+    private double latitude = 0;
+    private double longitude = 0;
     private String stopName = "";
     private String stopUid = "";
-    BusStopInformation(float latitude, float longitude, String stopName){
+    public BusStopInformation(double latitude, double longitude, String stopName){
         this.latitude = latitude;
         this.longitude = longitude;
         this.stopName = stopName;
     }
-    float getLatitude(){
+    public double getLatitude(){
         return latitude;
     }
-    float getLongitude(){
+    public double getLongitude(){
         return longitude;
     }
-    String getStopName(){
+    public String getStopName(){
         return stopName;
     }
     String getStopUid(){

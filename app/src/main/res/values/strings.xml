@@ -35,5 +35,6 @@
     <string name="text_tvMarkerDrag">Drag Marker</string>
     <string name="text_btClearMap">Clear</string>
     <string name="text_btResetMap">Reset</string>
+    <string name="title_activity_mrt_nearby">Map</string>
 
 </resources>

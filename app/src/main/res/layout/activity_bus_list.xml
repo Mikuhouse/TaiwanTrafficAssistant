@@ -131,6 +131,7 @@
                 android:background="@color/colorFringe">
 
             </View>
+
             <android.support.constraint.ConstraintLayout
                 android:id="@+id/cl_route_map"
                 android:layout_width="match_parent"
@@ -142,9 +143,9 @@
                     android:layout_height="50dp"
                     android:layout_marginTop="8dp"
                     android:layout_marginBottom="8dp"
-                    app:layout_constraintBottom_toBottomOf="@id/cl_route_map"
-                    app:layout_constraintLeft_toLeftOf="@id/cl_route_map"
-                    app:layout_constraintTop_toTopOf="@id/cl_route_map"
+                    app:layout_constraintBottom_toBottomOf="@id/cl_mrt_route_map"
+                    app:layout_constraintLeft_toLeftOf="@id/cl_mrt_route_map"
+                    app:layout_constraintTop_toTopOf="@id/cl_mrt_route_map"
                     app:srcCompat="@drawable/ic_map" />
 
                 <LinearLayout
@@ -172,11 +173,12 @@
 
                 <ImageView
                     android:id="@+id/iv_bus_route_map_arrow"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    app:layout_constraintBottom_toBottomOf="@id/cl_route_map"
-                    app:layout_constraintRight_toRightOf="@id/cl_route_map"
-                    app:layout_constraintTop_toTopOf="@id/cl_route_map"
+                    android:layout_marginBottom="8dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
                     app:srcCompat="@drawable/ic_arrow" />
 
             </android.support.constraint.ConstraintLayout>

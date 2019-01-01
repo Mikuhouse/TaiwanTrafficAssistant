@@ -1,25 +1,26 @@
-package com.example.taiwantrafficassistant.controller.bus.NearbyStop;
+package com.example.taiwantrafficassistant.controller.mrt;
 
 import android.Manifest;
 import android.content.IntentSender;
 import android.content.pm.PackageManager;
 import android.location.Location;
-import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.AsyncTask;
-import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.FragmentActivity;
+import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.taiwantrafficassistant.controller.bus.routeSearch.BusRouteInformation;
+import com.example.taiwantrafficassistant.R;
+import com.example.taiwantrafficassistant.controller.bus.NearbyStop.BusNearbyStopOnMapActivity;
+import com.example.taiwantrafficassistant.controller.bus.NearbyStop.BusStopInformation;
 import com.example.taiwantrafficassistant.model.bus.api.BusStopsCoordinateUrlBuilder;
-import com.example.taiwantrafficassistant.model.bus.json.BusRouteJsonUtils;
+import com.example.taiwantrafficassistant.model.bus.api.MrtStopsCoordinateUrlBuilder;
 import com.example.taiwantrafficassistant.model.bus.json.StopCoordinateJsonAnalysis;
 import com.example.taiwantrafficassistant.model.utilities.network.NetworkUtils;
 import com.google.android.gms.common.ConnectionResult;
@@ -30,10 +31,6 @@ import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.GoogleMap.InfoWindowAdapter;
-import com.google.android.gms.maps.GoogleMap.OnInfoWindowClickListener;
-import com.google.android.gms.maps.GoogleMap.OnMarkerClickListener;
-import com.google.android.gms.maps.GoogleMap.OnMarkerDragListener;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
@@ -41,29 +38,15 @@ import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
-import com.example.taiwantrafficassistant.R;
-import com.google.android.gms.maps.model.UrlTileProvider;
-import com.google.android.gms.tasks.OnSuccessListener;
-
 
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BusNearbyStopOnMapActivity extends AppCompatActivity
+public class MrtNearbyActivity extends AppCompatActivity
         implements OnMapReadyCallback {
     private GoogleMap map;
-    private Marker marker_taroko;
-    private Marker marker_yushan;
-    private Marker marker_kenting;
-    private Marker marker_yangmingshan;
-    private TextView tvMarkerDrag;
-    private TextView tvBusStopResult;
-    private LatLng taroko;
-    private LatLng yushan;
-    private LatLng kenting;
-    private LatLng yangmingshan;
-    LocationManager mLocationManager;
+
     List<LatLng> locations;
     Location mylocation;
     private List<BusStopInformation> informationList = new ArrayList<>();
@@ -85,7 +68,7 @@ public class BusNearbyStopOnMapActivity extends AppCompatActivity
                 @Override
                 public void onConnected(Bundle bundle) {
                     Log.i(TAG, "GoogleApiClient connected");
-                    if (ActivityCompat.checkSelfPermission(BusNearbyStopOnMapActivity.this,
+                    if (ActivityCompat.checkSelfPermission(MrtNearbyActivity.this,
                             Manifest.permission.ACCESS_COARSE_LOCATION) ==
                             PackageManager.PERMISSION_GRANTED) {
                         lastLocation = LocationServices.FusedLocationApi
@@ -112,7 +95,7 @@ public class BusNearbyStopOnMapActivity extends AppCompatActivity
                     showToast("12");
                     if (!result.hasResolution()) {
                         GoogleApiAvailability.getInstance().getErrorDialog(
-                                BusNearbyStopOnMapActivity.this,
+                                MrtNearbyActivity.this,
                                 result.getErrorCode(),
                                 0
                         ).show();
@@ -120,7 +103,7 @@ public class BusNearbyStopOnMapActivity extends AppCompatActivity
                     }
                     try {
                         result.startResolutionForResult(
-                                BusNearbyStopOnMapActivity.this,
+                                MrtNearbyActivity.this,
                                 REQUEST_CODE_RESOLUTION);
                     } catch (IntentSender.SendIntentException e) {
                         Log.e(TAG, "Exception while starting resolution activity");
@@ -182,11 +165,11 @@ public class BusNearbyStopOnMapActivity extends AppCompatActivity
     private void makeNearbyStopQuery(){
         String tmp = "25.061397,121.482854";
         System.out.println(tmp);
-            tmp = lastLocation.getLatitude() +
-                    "," +
-                    lastLocation.getLongitude();
-            System.out.println(tmp);
-        new QueryTask().execute(tmp);
+        tmp = lastLocation.getLatitude() +
+                "," +
+                lastLocation.getLongitude();
+        System.out.println(tmp);
+        new MrtNearbyActivity.QueryTask().execute(tmp);
     }
 
     private void reloadInformation(){
@@ -202,7 +185,7 @@ public class BusNearbyStopOnMapActivity extends AppCompatActivity
 
         @Override
         protected List<BusStopInformation> doInBackground(String... params) {
-            URL url= BusStopsCoordinateUrlBuilder.buildUrl(params[0]);
+            URL url= MrtStopsCoordinateUrlBuilder.buildUrl(params[0]);
             String jsonResponse = null;
             if(url == null){
                 return null;
@@ -258,7 +241,7 @@ public class BusNearbyStopOnMapActivity extends AppCompatActivity
 
         //map.setInfoWindowAdapter(new MyInfoWindowAdapter());
 
-        MyMarkerListener myMarkerListener = new MyMarkerListener();
+        MrtNearbyActivity.MyMarkerListener myMarkerListener = new MrtNearbyActivity.MyMarkerListener();
         map.setOnMarkerClickListener(myMarkerListener);
         map.setOnInfoWindowClickListener(myMarkerListener);
 
@@ -267,16 +250,16 @@ public class BusNearbyStopOnMapActivity extends AppCompatActivity
     private void addMarkersToMap() {
         for(int i = 0;i < informationList.size();i++){
             map.addMarker(new MarkerOptions()
-            .position(locations.get(i))
-            .title(informationList.get(i).getStopName())
+                    .position(locations.get(i))
+                    .title(informationList.get(i).getStopName())
                     .snippet(informationList.get(i).getStopName())
                     .icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_bus_pin)
-            ));
+                    ));
         }
     }
 
-    private class MyMarkerListener implements OnMarkerClickListener,
-            OnInfoWindowClickListener {
+    private class MyMarkerListener implements GoogleMap.OnMarkerClickListener,
+            GoogleMap.OnInfoWindowClickListener {
         @Override
         public boolean onMarkerClick(Marker marker) {
             showToast(marker.getTitle());
