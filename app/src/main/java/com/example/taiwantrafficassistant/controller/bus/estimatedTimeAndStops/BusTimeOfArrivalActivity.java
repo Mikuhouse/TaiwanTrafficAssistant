@@ -53,7 +53,7 @@ public class   BusTimeOfArrivalActivity extends AppCompatActivity {
             departureStopName = information.getDepartureStopNam();
             destinationStopName = information.getDestinationStopName();
 
-            setTitle(routeNameToSearch + " " + departureStopName + "-" + destinationStopName);
+            setTitle(routeNameToSearch + " " + destinationStopName + "-" + departureStopName);
             updateInformation();
 
 

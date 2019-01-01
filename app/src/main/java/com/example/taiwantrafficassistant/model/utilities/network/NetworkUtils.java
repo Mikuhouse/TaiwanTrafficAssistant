@@ -2,13 +2,28 @@ package com.example.taiwantrafficassistant.model.utilities.network;
 
 import android.net.Uri;
 
+import java.io.BufferedInputStream;
+import java.io.BufferedReader;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.net.URLConnection;
 import java.net.URLEncoder;
+import java.security.cert.CertificateFactory;
 import java.util.Scanner;
+
+import javax.net.ssl.HostnameVerifier;
+import javax.net.ssl.HttpsURLConnection;
+import javax.net.ssl.SSLContext;
+import javax.net.ssl.SSLSession;
+import javax.net.ssl.SSLSocketFactory;
+import javax.net.ssl.TrustManager;
+import javax.net.ssl.X509TrustManager;
 
 /**
  * 這個NetworkUtils的功能:
@@ -103,7 +118,7 @@ public class NetworkUtils {
      */
     public static String getResponseFromHttpUrl(URL url) throws IOException {
         //URLEncoder.encode(url.toString());
-        HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
+        URLConnection urlConnection = url.openConnection();
         try {
             InputStream in = urlConnection.getInputStream();
 
@@ -117,7 +132,38 @@ public class NetworkUtils {
                 return null;
             }
         } finally {
-            urlConnection.disconnect();
+            //urlConnection.disconnect();
+        }
+    }
+
+
+    public static String getResponseFromHttpsUrl(URL url) throws IOException {
+        HostnameVerifier hostnameVerifier = new HostnameVerifier() {
+            @Override
+            public boolean verify(String hostname, SSLSession session) {
+                HostnameVerifier hv =
+                        HttpsURLConnection.getDefaultHostnameVerifier();
+                return hv.verify("maps.googleapis.com", session);
+            }
+        };
+
+        HttpsURLConnection urlConnection =
+                (HttpsURLConnection)url.openConnection();
+        urlConnection.setHostnameVerifier(hostnameVerifier);
+        try {
+            InputStream in = urlConnection.getInputStream();
+
+            Scanner scanner = new Scanner(in);
+            scanner.useDelimiter("\\A");
+
+            boolean hasInput = scanner.hasNext();
+            if (hasInput) {
+                return scanner.next();
+            } else {
+                return null;
+            }
+        } finally {
+            //urlConnection.disconnect();
         }
     }
 }

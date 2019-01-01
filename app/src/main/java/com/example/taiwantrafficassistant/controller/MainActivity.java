@@ -10,7 +10,9 @@ import android.widget.ImageView;
 
 import com.example.taiwantrafficassistant.R;
 import com.example.taiwantrafficassistant.controller.bus.mainFunctionList.BusListActivity;
+import com.example.taiwantrafficassistant.controller.mrt.MrtListActivity;
 import com.example.taiwantrafficassistant.controller.mrt.MrtMapWebviewActivity;
+import com.example.taiwantrafficassistant.controller.railway.RailWayWebview;
 import com.example.taiwantrafficassistant.test.TestGithubRepoApiActivity;
 import com.example.taiwantrafficassistant.test.TestPtxApiActivity;
 
@@ -18,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
     //TODO 建立GridView並點擊導向功能列表
     ImageView mBus;
     ImageView mMrt;
+    ImageView mRailWay;
     //RecyclerView mMore;
 
     @Override
@@ -30,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
         ////retrieve xml layout component
         mBus = findViewById(R.id.cl_main_bus);
         mMrt = findViewById(R.id.cl_main_mrt);
-
+        mRailWay = findViewById(R.id.cl_main_railway);
 
 
 
@@ -47,12 +50,21 @@ public class MainActivity extends AppCompatActivity {
         mMrt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent testIntent = new Intent(MainActivity.this, MrtMapWebviewActivity.class);
+                Intent testIntent = new Intent(MainActivity.this, MrtListActivity.class);
                 startActivity(testIntent);
             }
 
         });
+        /*
+        mRailWay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent testIntent = new Intent(MainActivity.this, RailWayWebview.class);
+                startActivity(testIntent);
+            }
 
+        });
+        */
 
 
     }
